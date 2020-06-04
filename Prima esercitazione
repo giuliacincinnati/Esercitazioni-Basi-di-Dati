@@ -1,0 +1,91 @@
+create database università;
+
+use università;
+
+create table docente(
+matricola numeric(6),
+nome varchar(30),
+cognome varchar(20),
+data_nascita date,
+codice_fiscale varchar(16),
+dipartimento varchar(40)
+);
+
+insert into docente
+values(123456, "Fedelucio", "Narducci", "1970-04-21", "FDLNRD1234567890", "Informatica");
+
+insert into docente
+values(654321, "Stefano", "Ferilli", "1975-05-19", "STFFRL2468097531", "Informatica");
+
+insert into docente
+values(567234, "Ciro", "Castiello", "1980-01-12", "CCRCST1234567887", "Informatica");
+
+insert into docente
+values(113498, "Genni", "Fragnelli", "1976-09-10", "GNNFRG0965127653", "Informatica");
+
+insert into docente
+values(113498, "Marco", "De Gemmis", "1976-09-10", "MRCDGM0981237653", "Informatica");
+
+create table studente(
+matricola numeric(6),
+nome varchar(30),
+cognome varchar(20),
+data_nascita date,
+codice_fiscale varchar(16),
+corso_laurea varchar(50)
+);
+
+insert into studente
+values(567441, "Leandra", "Palemburgi", "1986-04-21", "LNDPLG1234567890", "Informatica e Comunicazione Digitale");
+
+insert into studente
+values(655338, "Lorenzo", "Pecoraro", "1998-04-26", "LORPEX2468097531", "Informatica e Comunicazione Digitale");
+
+insert into studente
+values(567234, "Andrea", "Palladino", "1989-01-29", "ADRPLL123369887", "Informatica per la Produzione del Software");
+
+insert into studente
+values(114398, "Pierpaolo", "Mariani", "1976-09-10", "PRPMRN0123127653", "Informatica e Comunicazione Digitale");
+
+create table modulo(
+codice numeric(6),
+nome varchar(70),
+descrizione varchar(100),
+CFU int(3)
+);
+
+insert into modulo
+values(908754, "Laboratorio d'Informatica", "Esame informatico", "6");
+
+insert into modulo
+values(543678, "Algoritmi e Strutture Dati", "Esame informatico", "12");
+
+insert into modulo
+values(102938, "Architettura degli Elaboratori e Sistemi Operativi", "Esame informatico", "9");
+
+insert into modulo
+values(312475, "Analisi Matematica", "Esame matematico", "9");
+
+insert into modulo
+values(635721, "Linguaggi di Programmazione", "Esame logico", "6");
+
+create table esame(
+matricola_studente numeric(6),
+codice_modulo numeric(6),
+matricola_docente numeric(6),
+data date,
+voto varchar(3),
+note varchar(50)
+);
+
+insert into esame
+values(567441, 312475, 654321, "2020-09-20", "30L", "Leandra è bravissima");
+
+insert into esame
+values(655338, 908754, 123456, "2019-11-20", "18", "Poteva andare meglio");
+
+insert into esame
+values(567234, 543678, 654321, "2020-11-11", "18", "Esame difficile");
+
+insert into esame
+values(114398, 635721, 113498, "2020-11-15", "25", "Buon voto");
